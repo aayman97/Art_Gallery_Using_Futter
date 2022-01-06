@@ -1,0 +1,55 @@
+ {
+ "items": [
+   {
+   "painting": "assets/images/Self-Portrait_with_a_Straw_Hat.jpg",
+    "name": "Self-Portrait with a Straw Hat"
+  },
+  {
+    "painting": "assets/images/The_Starry_Night.jpg",
+    "name": "The Starry Night"
+  },
+  {
+    "painting": "assets/images/Irises.jpg",
+    "name": "Irises"
+  },
+
+  {
+    "painting": "assets/images/Le_café_de_nuit.jpg",
+    "name": "Le café de nuit"
+  },
+
+  {
+    "painting": "assets/images/Bedroom_in_Arles.jpg",
+    "name": "Bedroom in Arles"
+  },
+
+  {
+    "painting": "assets/images/Wheat_Field_with_Cypresses.jpg",
+    "name": "Wheat Field with Cypresses"
+  },
+  {
+    "painting": "assets/images/The_Drinkers.jpg",
+    "name": "The Drinkers"
+  },
+  {
+    "painting": "assets/images/Sunflowers.jpg",
+    "name": "Sunflowers"
+  },
+  {
+    "painting": "assets/images/Self-portrait.jpg",
+    "name": "Self-portrait"
+  },
+  {
+    "painting": "assets/images/Roses.jpg",
+    "name": "Roses"
+  },
+  {
+    "painting": "assets/images/The_Factory.jpg",
+    "name": "The Factory"
+  },
+  {
+    "painting": "assets/images/Madame_Roulin_and_Her_Baby.jpg",
+    "name": "Madame Roulin and Her Baby"
+  }
+]
+ }
