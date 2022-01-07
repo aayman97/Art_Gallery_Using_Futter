@@ -16,11 +16,13 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
   List _items = [];
   double _pageoffset = 0;
   int currentIndex = 0;
   double _opacity = 1.0;
+
+   late AnimationController controllerForProgress;
 
   Future<void> ReadJsonData() async {
     final jsonfile = await rootBundle.loadString("assets/data.json");
@@ -36,6 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
   );
 
   initState() {
+    controllerForProgress = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    )..addListener(() {
+        setState(() {});
+      });
+    controllerForProgress.repeat(reverse: false);
     super.initState();
     controller.addListener(() {
       setState(() {
@@ -44,6 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  @override
+  void dispose() {
+    controllerForProgress.dispose();
+    super.dispose();
+  }
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -97,7 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           width : width,
                           height: height*0.8,
                           child: Center(
-                            child: Text('Loading'),
+                            child: CircularProgressIndicator(
+              value: controllerForProgress.value,
+              semanticsLabel: 'Linear progress indicator',
+            ),
                           ),
                         );
                       }
