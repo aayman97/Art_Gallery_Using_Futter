@@ -93,19 +93,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               )),
                         );
                       } else {
-                        return Center(
-                          child: Text('Loading'),
+                        return Container(
+                          width : width,
+                          height: height*0.8,
+                          child: Center(
+                            child: Text('Loading'),
+                          ),
                         );
                       }
                     },
                   ),
-           BestSellerTextAndIcon("Trending"),
+           _items.isNotEmpty ? BestSellerTextAndIcon("Trending") : Container(),
           Column(
-            children: TrendingBanners(width,height),
+            children: _items.isNotEmpty ? TrendingBanners(width,height) : [],
           ),
-            BestSellerTextAndIcon("Hot new items"),
+              _items.isNotEmpty ? BestSellerTextAndIcon("Hot new items") : Container(),
           Row(
-            children: AfterTrendingBanners(width,height),
+            children: _items.isNotEmpty ? AfterTrendingBanners(width,height) : [],
           ),
            SizedBox(
              height: 100,
