@@ -55,22 +55,24 @@ List<Widget> _widgetOptions = <Widget>[
   Widget build(BuildContext context) {
         var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-  return Scaffold(
+  return SafeArea(
+    child: Scaffold(
+        
+        body: Stack(
+          children: [
+        
+  
+          Stack(
+          children: [
+            Center(child: _widgetOptions.elementAt(_selectedIndex)),
+            BottomNavigationBar(width, height)
+          ],
+        ),
+          ],
+        ),
       
-      body: Stack(
-        children: [
-      
-
-        Stack(
-        children: [
-          Center(child: _widgetOptions.elementAt(_selectedIndex)),
-          BottomNavigationBar(width, height)
-        ],
       ),
-        ],
-      ),
-    
-    );
+  );
   }
 
   Align BottomNavigationBar(double width, double height) {
@@ -128,7 +130,7 @@ List<Widget> _widgetOptions = <Widget>[
                                         ) : Positioned(
                                         left : width*0.05,
                                         top : height*0.05,
-                                        child: Icon(Icons.circle,size: 7,color: Colors.white,)
+                                        child: Icon(Icons.circle,size: 7,color: Colors.transparent,)
                                         ) 
                                     ],
                                   ),
@@ -158,7 +160,7 @@ List<Widget> _widgetOptions = <Widget>[
                                         ) : Positioned(
                                         left : width*0.05,
                                         top : height*0.05,
-                                        child: Icon(Icons.circle,size: 7,color: Colors.white,)
+                                        child: Icon(Icons.circle,size: 7,color: Colors.transparent,)
                                         ) 
                                     ],
                                   ),
@@ -191,7 +193,7 @@ List<Widget> _widgetOptions = <Widget>[
                                         ) : Positioned(
                                         left : width*0.05,
                                         top : height*0.05,
-                                        child: Icon(Icons.circle,size: 7,color: Colors.white,)
+                                        child: Icon(Icons.circle,size: 7,color: Colors.transparent,)
                                         ) 
                                     ],
                                   ),
@@ -221,7 +223,7 @@ List<Widget> _widgetOptions = <Widget>[
                                         ) : Positioned(
                                         left : width*0.05,
                                         top : height*0.05,
-                                        child: Icon(Icons.circle,size: 7,color: Colors.white,)
+                                        child: Icon(Icons.circle,size: 7,color: Colors.transparent,)
                                         ) 
                                     ],
                                   ),

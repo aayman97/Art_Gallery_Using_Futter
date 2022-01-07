@@ -100,9 +100,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
            BestSellerTextAndIcon("Trending"),
-            SizedBox(
-              height: 500,
-            )
+          Column(
+            children: TrendingBanners(width,height),
+          ),
+            BestSellerTextAndIcon("Hot new items"),
+          Row(
+            children: AfterTrendingBanners(width,height),
+          ),
+           SizedBox(
+             height: 100,
+           )
 
                 ],
               ),
@@ -153,5 +160,205 @@ class _HomeScreenState extends State<HomeScreen> {
           );
   }
 
+  List<Widget>TrendingBanners(double width, double height) {
 
+     List<Widget> widgets = [];
+
+      for(int i =1;i< 4 ;i++){
+
+        if(_items.isNotEmpty){
+          widgets.add(
+          Container(
+            width : width*0.9,
+            height: height*0.37,
+            margin: EdgeInsets.symmetric(vertical: 15),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+        spreadRadius: 1,
+        blurRadius: 4,
+        offset: Offset(0, 1),
+                )
+              ]
+            ),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
+                  child: Image.asset(_items[i]['painting'], width : double.infinity,height: (height*0.3)* 0.9,fit: BoxFit.fill,)
+                  ),
+
+                Container(
+                  height: height*0.37 - (height*0.3)* 0.9,
+                  width: width*0.9,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(_items[i]["name"], style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight: FontWeight.w600,
+                                                      fontSize:20)),),
+                           Row(
+                                    children: [
+                                      Container(
+                                        width: 20,
+                                        height: 20,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    'assets/images/Avatar.jpg'),
+                                                fit: BoxFit.cover)
+                                                ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 10),
+                                        child: Text('Vincent Van Gogh',
+                                            style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.7),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10))
+                                                    ),
+                                      )
+                                    ],
+                                  ),
+                      ],
+                      ),
+
+                      Container(
+                        width: (width*0.9)*0.25,
+                        height: (height*0.37 - (height*0.3)* 0.9)*0.8,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        padding: EdgeInsets.all(6),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("Current bid",style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.white
+                                                        .withOpacity(1),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 12))),
+                            Text((i*127187).toString()+"\$", style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.white
+                                                        .withOpacity(1),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15)))
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+
+
+              ],
+            )
+          )
+
+        );
+        }
+        
+      }
+
+  return widgets;
+
+  }
+
+  List<Widget>AfterTrendingBanners(double width, double height) {
+     
+     List<Widget> widgets = [];
+
+      for(int i =1;i< 3 ;i++){
+      
+      widgets.add(
+        Container(
+          width:width*0.44,
+          height: height *0.36,
+           margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+           
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+        spreadRadius: 1,
+        blurRadius: 4,
+        offset: Offset(0, 1),
+                )
+              ]
+            ),
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(_items[i]['painting'], width: double.infinity, height: height*.2, fit: BoxFit.fill,)
+                ),
+                Container(
+                  child: Text(_items[i]["name"], style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                      color: Colors.black
+                                                          .withOpacity(0.5),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 10))),
+                ),
+               Text("Art by Van Gogh...", style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(1),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 12))),
+
+                Text("Lorem ipsum tempor incididunt ut labore et dolore magna aliqua.", style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.5),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10))),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                        Text((i*517722).toString()+"\$", style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(1),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15))),
+                Icon(Icons.arrow_forward_outlined)
+                ],
+              )
+            ],
+          ),
+        ),
+        )
+      );
+
+      }
+
+
+    return widgets;
+  }
+
+ 
 }
