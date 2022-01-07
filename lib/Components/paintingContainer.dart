@@ -57,7 +57,7 @@ Center paintingConatiner(int itemIndex, double height, double _pageoffset,  List
       child: Transform(
         transform: matrix,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 18),
           width: 450,
           height: height * 0.9,
           child: Stack(

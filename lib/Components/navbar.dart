@@ -43,7 +43,7 @@ class Navbar extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment : CrossAxisAlignment.center,
                         children: [
-                          Text("NFTz",style: GoogleFonts.poppins(
+                          Text("VANG",style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class Navbar extends StatelessWidget {
                                                   ),
         
                             Container(
-                              margin: EdgeInsets.only(top : 15,left: 5),
+                              margin: EdgeInsets.only(top : 13,left: 2),
                               child: Icon(Icons.circle, size: 5, color: Colors.amber,))
                         ],
                       ),
